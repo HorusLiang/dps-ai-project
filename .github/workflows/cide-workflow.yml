@@ -27,4 +27,4 @@ jobs:
       - name: Delete old container
         run: docker rm -f dps-ai-project-container
       - name: Run docker container
-        run: docker run -d -p 5000:5000 --name horusliang/dps-ai-project-container horusliang/dps-ai-project
+        run: docker run -d -p 5000:5000 --name dps-ai-project-container horusliang/dps-ai-project
