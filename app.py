@@ -119,10 +119,13 @@ def predict_traffic_accidents(input_data):
 
 @app.route('/', methods=['POST'])
 def predict():
-    data = request.get_json()
-    print(data)
-    predictions = predict_traffic_accidents(data)
-    return jsonify(predictions)
+    try:
+        data = request.get_json()
+        predictions = predict_traffic_accidents(data)
+        return jsonify(predictions)
+    except Exception as e:
+        print(f"Error occurred: {e}")
+        return jsonify({"error": "Internal Server Error", "message": str(e)}), 500
 
 @app.route('/', methods=['GET'])
 def test():
